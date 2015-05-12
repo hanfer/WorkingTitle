@@ -1,12 +1,13 @@
 #pragma once
 
 #include <unordered_map>
-#include <cstdint>
+
+#include "global.hpp"
 
 class Buffer
 {
 public:
-	typedef std::unordered_map<uint64_t, std::string> LineBuffer; //todo: handle different encodings
+	typedef std::unordered_map<u64, std::string> LineBuffer; //todo: handle different encodings
 
 	Buffer();
 	~Buffer();

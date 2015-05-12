@@ -22,7 +22,7 @@ Buffer* Buffer::fromFile(const std::string filename)
 void Buffer::load(const std::string filename)
 {
 	std::ifstream file(filename);
-	uint64_t      i = 0;
+	u64			  i = 0;
 	std::string   line;
 
 	while (std::getline(file, line))
