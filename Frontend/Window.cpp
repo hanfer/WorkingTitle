@@ -3,6 +3,7 @@
 #include "lodepng.hpp"
 
 Window::Window()
+	: Control("")
 {
 	
 }

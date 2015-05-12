@@ -1,6 +1,5 @@
 #pragma once
 
-#include "gason.hpp"
 #include "Window.hpp"
 
 #include <string>
@@ -33,11 +32,6 @@ public:
 
 private:
 	const std::string	filename;
-	JsonValue			root;
-    JsonAllocator		allocator;
 	EntryMap			entryMap;
-
-	void loadValue(JsonValue value);
-	void loadLayers(Entry &entry, JsonValue value);
 };
 
