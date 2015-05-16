@@ -2,7 +2,9 @@
 
 #include <string>
 #include <vector>
+
 #include "Control.hpp"
+#include "Skin.hpp"
 
 class Window : public Control
 {
@@ -13,6 +15,7 @@ public:
 	virtual bool init() = 0;
 	virtual void run() = 0;
 
+	virtual void drawRect(int x, int y, int width, int height, Skin::Color color);
 	virtual void drawTexture(const std::string filename, int x, int y) = 0;
 
 protected:

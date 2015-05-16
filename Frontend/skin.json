@@ -1,5 +1,7 @@
 [
-    { 
-        "class":  "Label",
+    {
+        "name": "Label",
+        "bgColor": [255, 255, 255, 255],
+        "fontColor": [255, 255, 255, 255]
     }
 ]

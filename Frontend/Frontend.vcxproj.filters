@@ -33,6 +33,9 @@
     <ClInclude Include="lodepng.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Global.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowWin32.cpp">

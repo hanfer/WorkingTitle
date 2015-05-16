@@ -68,6 +68,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Control.hpp" />
+    <ClInclude Include="Global.hpp" />
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="lodepng.hpp" />
     <ClInclude Include="Skin.hpp" />
