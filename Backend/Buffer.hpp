@@ -2,7 +2,7 @@
 
 #include <unordered_map>
 
-#include "global.hpp"
+#include "Global.hpp"
 
 class Buffer
 {

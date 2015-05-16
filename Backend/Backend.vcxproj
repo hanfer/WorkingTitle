@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\deps\libuv\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\deps\libuv\Debug\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\deps\libuv\include;..\deps\jansson\include;..\deps\http-parser;$(IncludePath)</IncludePath>
+    <LibraryPath>..\deps\libuv\Debug\lib;..\deps\jansson\lib;..\deps\http-parser\Debug\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -51,7 +51,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;libuv.lib;psapi.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;libuv.lib;psapi.lib;Iphlpapi.lib;jansson_d.lib;http_parser.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -73,11 +73,13 @@
     <ClInclude Include="Command.hpp" />
     <ClInclude Include="Cursor.hpp" />
     <ClInclude Include="global.hpp" />
+    <ClInclude Include="HTTPServer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Backend.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="HTTPServer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

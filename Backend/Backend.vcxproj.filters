@@ -27,6 +27,9 @@
     <ClInclude Include="global.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HTTPServer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Buffer.cpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Backend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTPServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
