@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>..\deps\libuv\include;..\deps\jansson\include;..\deps\http-parser;$(IncludePath)</IncludePath>
-    <LibraryPath>..\deps\libuv\Debug\lib;..\deps\jansson\lib;..\deps\http-parser\Debug\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\deps\libuv\Debug\lib;..\deps\jansson\lib\Debug;..\deps\http-parser\Debug\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -69,17 +69,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Any.hpp" />
+    <ClInclude Include="Backend.hpp" />
     <ClInclude Include="Buffer.hpp" />
     <ClInclude Include="Command.hpp" />
     <ClInclude Include="Cursor.hpp" />
-    <ClInclude Include="global.hpp" />
+    <ClInclude Include="Global.hpp" />
     <ClInclude Include="HTTPServer.hpp" />
+    <ClInclude Include="Parser.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Backend.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="HTTPServer.cpp" />
+    <ClCompile Include="Parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

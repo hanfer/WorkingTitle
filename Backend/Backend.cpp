@@ -1,12 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <uv.h>
+#include "Backend.hpp"
 
-#include "HTTPServer.hpp"
+Backend::Backend()
+	: server(new HTTPServer())
+{
+}
 
-int main() {
-	HTTPServer* server = new HTTPServer(8000);
-	server->run();
-	return   uv_run(uv_default_loop(), UV_RUN_DEFAULT);
+Backend::~Backend()
+{
+}
+
+int Backend::run()
+{
+	server->run(8000);
+	return uv_run(uv_default_loop(), UV_RUN_DEFAULT);
+}
+
+int main()
+{
+	Backend backend;
+	
+	return backend.run();
 }
