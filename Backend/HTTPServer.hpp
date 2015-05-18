@@ -15,10 +15,10 @@
 class HTTPServer
 {
 public:
-	HTTPServer(const int pPort);
+	HTTPServer();
 	~HTTPServer();
 
-	int run();
+	int run(const int port);
 
 private:
 	struct Client
@@ -72,7 +72,6 @@ private:
 	uv_loop_t *loop;
 	uv_tcp_t server;
 	sockaddr_in addr;
-	const int port;
 	http_parser_settings parser_settings;
 };
 

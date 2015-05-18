@@ -7,9 +7,8 @@
 #include <string>
 
 
-HTTPServer::HTTPServer(const int pPort)
-	: port(pPort)
-	, loop(uv_default_loop())
+HTTPServer::HTTPServer()
+	: loop(uv_default_loop())
 {
 	
 }
@@ -18,7 +17,7 @@ HTTPServer::~HTTPServer()
 {
 }
 
-int HTTPServer::run()
+int HTTPServer::run(const int port)
 {
 	parser_settings.on_url = Client::http_url_cb;
 	parser_settings.on_body = Client::http_body_cb;
