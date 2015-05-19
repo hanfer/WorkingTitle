@@ -7,7 +7,7 @@
 
 class Any
 {
-private:
+public:
 	class Placeholder
 	{
 	public:
@@ -25,7 +25,7 @@ private:
 		Holder(T const& t) : val(t) {}
 
 		void* data() const override
-		{ return &val; }
+		{ return (void *)&val; }
 
 		const std::type_index type() override
 		{ return typeid(T); }
@@ -37,7 +37,7 @@ private:
 		T val;
 	};
 
-public:
+
 	Any()
 		: ptr(nullptr)
 	{}
@@ -48,7 +48,7 @@ public:
 
 	template < typename T >
 	Any(T const& t) 
-		: ptr(new Holder<T>(t)) 
+		: ptr((Placeholder *)new Holder<T>(t)) 
 	{}
 
 	~Any()
@@ -58,9 +58,9 @@ public:
 	}
 
 	template < typename T >
-	T get()
+	T get() const
 	{
-		assert(this->ptr == nullptr);
+		assert(this->ptr != nullptr);
 		return *(reinterpret_cast<T*>(ptr->data()));
 	}
 
@@ -73,18 +73,20 @@ public:
 		ptr = new Holder<T>(t);
 	}
 
-	bool isVaild()
-	{ return ptr != nullptr; }
+	bool isVaild() const
+	{
+		return ptr != nullptr;
+	}
 
 	template<typename T>
-	bool isType()
+	bool isType() const
 	{
 		return isType(typeid(T));
 	}
 
-	bool isType(std::type_index type)
+	bool isType(std::type_index type) const
 	{
-		assert(this->ptr == nullptr);
+		assert(this->ptr != nullptr);
 		return type == ptr->type();
 	}
 
@@ -112,13 +114,13 @@ public:
 	}
 
 	template < typename T >
-	T get(ListType::size_type index)
+	T get(ListType::size_type index) const
 	{
 		return list.at(index).get<T>();
 	}
 
 	template <>
-	Any get<Any>(ListType::size_type index)
+	Any get<Any>(ListType::size_type index) const
 	{
 		return list.at(index);
 	}
