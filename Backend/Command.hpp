@@ -5,25 +5,43 @@
 
 #include "Any.hpp"
 
+class Backend;
+
 class Command
 {
 public:
-	Command() = delete;
-	Command(const AnyList& pParams)
-		: params(pParams)
-	{}
-
 	virtual ~Command() {}
 
-	virtual void execute() = 0;
-	virtual void undo() = 0;
+	virtual void validate(const AnyList& params) = 0;
+	virtual void execute(Backend *backend) = 0;
+	virtual void undo(Backend *backend) = 0;
 
-	const AnyList params;
+	template<typename T>
+	static Command* create()
+	{
+		return new T();
+	}
 };
 
 class CreateBuffer : public Command
 {
 public:
-	void execute() override {};
-	void undo() override {};
+
+	void validate(const AnyList& params) override
+	{
+		name = params.get<std::string>(0);
+	};
+
+	void execute(Backend* backend) override
+	{
+		std::cout << "CreateBuffer(" << name << ") execute" << std::endl;
+	};
+
+	void undo(Backend* backend) override
+	{
+		std::cout << "CreateBuffer(" << name << ") undo" << std::endl;
+	};
+
+private:
+	std::string name;
 };
